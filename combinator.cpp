@@ -120,37 +120,6 @@ Combinator::combinate(int offset, int k ) {
     }
 }
 
-void
-Combinator::placerAntennes(  ) {
-    
-    for (int i = 0; i < this->immeubles.taille(); ++i) {
-        indices.ajouter(i);
-    }
-    combinate(0, this->stations.taille() );
-    
-    for( int i = 0 ; i < stations.taille(); i++){
-        Immeuble immeuble = this->immeubles[combineGagnante[i]];
-        Station station = this->stations[permuteGagnante[i]];
-        
-        // ON REGARDE SI LA STATION EST INUTILE
-        bool inutile(false);
-        for( int j = 0 ; j < stations.taille(); j++ ){
-            if( i == j) continue;
-            Immeuble im = this->immeubles[combineGagnante[j]];
-            Station st = this->stations[permuteGagnante[j]];
-            float distance = im.position.distance(immeuble.position);
-            if( distance + station.rayon <= st.rayon){
-                inutile = true;
-                break;
-            }
-        }
-        
-        cout << station.nom << " " << (inutile ? "--" : immeuble.nom) << endl;
-        
-        
-    }
-    cout << couvertureMax << endl;
-}
 
 void Combinator::onCombinaison( const Tableau<int>& combine, const Tableau<int>& permutation ){
     
@@ -183,8 +152,13 @@ void Combinator::onCombinaison( const Tableau<int>& combine, const Tableau<int>&
             float distance = immeubleA.position.distance( immeubleB.position );
             float rayon = stationA.rayon + stationB.rayon;
             if( distance <= rayon ){
-                return;
+                // on passe si par chance l'antenne est inclue
+                if( distance + stationA.rayon <= stationB.rayon || distance + stationB.rayon <= stationA.rayon ){
+                    continue;
+                }
             }
+            return;
+            
             
         }
     }
@@ -227,6 +201,38 @@ void Combinator::onCombinaison( const Tableau<int>& combine, const Tableau<int>&
         combineGagnante = combine;
         permuteGagnante = permutation;
     }
+}
+
+void
+Combinator::placerAntennes(  ) {
+    
+    for (int i = 0; i < this->immeubles.taille(); ++i) {
+        indices.ajouter(i);
+    }
+    combinate(0, this->stations.taille() );
+    
+    for( int i = 0 ; i < stations.taille(); i++){
+        Immeuble immeuble = this->immeubles[combineGagnante[i]];
+        Station station = this->stations[permuteGagnante[i]];
+        
+        // ON REGARDE SI LA STATION EST INUTILE
+        bool inutile(false);
+        for( int j = 0 ; j < stations.taille(); j++ ){
+            if( i == j) continue;
+            Immeuble im = this->immeubles[combineGagnante[j]];
+            Station st = this->stations[permuteGagnante[j]];
+            float distance = im.position.distance(immeuble.position);
+            if( distance + station.rayon <= st.rayon){
+                inutile = true;
+                break;
+            }
+        }
+        
+        cout << station.nom << " " << (inutile ? "--" : immeuble.nom) << endl;
+        
+        
+    }
+    cout << couvertureMax << endl;
 }
 
 
