@@ -145,9 +145,8 @@ Combinator::placerAntennes(  ) {
             }
         }
         
-        
-        
         cout << station.nom << " " << (inutile ? "--" : immeuble.nom) << endl;
+        
         
     }
     cout << couvertureMax << endl;
@@ -183,9 +182,7 @@ void Combinator::onCombinaison( const Tableau<int>& combine, const Tableau<int>&
             // ON BLOQUE SI LES DEUX STATIONS SONT TROP PROCHES
             float distance = immeubleA.position.distance( immeubleB.position );
             float rayon = stationA.rayon + stationB.rayon;
-            
-            if( rayon <= distance ){
-                // REJETÉ CAR INTERFÉRENCES
+            if( distance <= rayon ){
                 return;
             }
             
