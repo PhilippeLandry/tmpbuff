@@ -111,7 +111,13 @@ void Tableau<T>::redimensionner(int nouvCapacite) {
 template <class T>
 void Tableau<T>::inserer(const T& element, int index)
 {
-    // À compléter
+    // redimensionner
+    nbElements++;
+    if(nbElements >= capacite) redimensionner(capacite * 2);
+    for( int i = nbElements - 1 ; i > index; i--){
+        elements[i] = elements[i-1];
+    }
+    elements[index] = element;
 }
 
 template <class T>
@@ -137,7 +143,10 @@ int Tableau<T>::trouver(const T& element)
 template <class T>
 void Tableau<T>::vider()
 {
-    // À compléter
+    nbElements = 0;
+    delete[] elements;
+    elements = new T[capacite];
+    
 }
 
 template <class T>
@@ -178,8 +187,13 @@ Tableau<T>& Tableau<T>::operator = (const Tableau<T>& autre)
 template <class T>
 bool Tableau<T>::operator == (const Tableau<T>& autre) const
 {
-    // À compléter
-    return false;
+    if( nbElements != autre.nbElements){ return false; }
+    for( int i = 0 ; i < nbElements; i++ ){
+        if( this->elements[i] != autre.elements[i]){
+            return false;
+        }
+    }
+    return true;
 }
 template <class T>
 void
