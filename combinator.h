@@ -1,8 +1,8 @@
 #if !defined(_COMBINATOR__H_)
 #define _COMBINATOR__H_
-#include "Tableau.h"
-#include "Station.h"
-#include "Immeuble.h"
+#include "tableau.h"
+#include "station.h"
+#include "immeuble.h"
 
 
 
@@ -28,7 +28,6 @@ private:
     int couvertureMax;
     Tableau<int> combineGagnante;
     Tableau<int> permuteGagnante;
-    float maxRayon;
     
     
 };
