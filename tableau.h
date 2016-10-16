@@ -1,9 +1,9 @@
-/* UQAM / Département d'informatique
- INF3105 - Structures de données et algorithmes
- Squelette pour classe générique Tableau<T> pour le TP1 et Lab3.
- AUTEUR(S): ÉCRIVEZ ICI VOTRE NOM + CODE PERMANENT
+/*  INF3105 | Structures de données et algorithmes
+ *  UQAM | Département d'informatique
+ *  Automne 2016 | TP1
+ *  http://ericbeaudry.ca/INF3105/
+ *  AUTEUR(S): PHILIPPE LANDRY LANP28096606
  */
-
 #if !defined(__TABLEAU__H__)
 #define __TABLEAU__H__
 #include <assert.h>

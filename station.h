@@ -2,8 +2,8 @@
  *  UQAM | Département d'informatique
  *  Automne 2016 | TP1
  *  http://ericbeaudry.ca/INF3105/
- */
-#if !defined(_STATION__H_)
+ *  AUTEUR(S): PHILIPPE LANDRY LANP28096606
+ */#if !defined(_STATION__H_)
 #define _STATION__H_
 #include <iostream>
 #include <string>

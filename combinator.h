@@ -4,7 +4,12 @@
 #include "station.h"
 #include "immeuble.h"
 
-
+/*  INF3105 | Structures de données et algorithmes
+ *  UQAM | Département d'informatique
+ *  Automne 2016 | TP1
+ *  http://ericbeaudry.ca/INF3105/
+ *  AUTEUR(S): PHILIPPE LANDRY LANP28096606
+ */
 
 class Combinator {
 public:
