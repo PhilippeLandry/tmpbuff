@@ -6,14 +6,15 @@
 
 # L'option -g permet de générer les infos de débogage.
 # Décommentez la ligne suivante si vous désirez utiliser un débogueur.
-OPTIONS = -g -O0 -Wall
+#OPTIONS = -g -O0 -Wall
 
 # Les options -O, -O1, -O2, -O3 permetent d'optimiser le code binaire produit.
 # Décommentez la ligne suivante si avant la remise finale
+OPTIONS = -O2 -Wall
 
-OPTIONS = -O3 -Wall
 
-
+# Syntaxe : cible : dépendance1 dépendance2 ...
+# Ensuite, la ou les ligne(s) débutant par une tabulation (\t) donne les commandes pour construire une cible
 tp1: tp1.cpp immeuble.o point.o station.o combinator.o tableau.h
 	g++ ${OPTIONS} -o tp1 tp1.cpp immeuble.o point.o station.o combinator.o
 
@@ -33,3 +34,4 @@ clean :
 	rm -f *.o
 	rm -f tp1
 	rm -f *~
+
