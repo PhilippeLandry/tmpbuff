@@ -7,7 +7,7 @@
 #define _IMMEUBLE__H_
 #include <iostream>
 #include <string>
-#include "Point.h"
+#include "point.h"
 class Immeuble
 {
 public:
