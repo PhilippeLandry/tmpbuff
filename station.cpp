@@ -8,7 +8,7 @@
 #include <assert.h>
 #include <iostream>
 
-Station::Station() : rayon(-1.0) , hauteurMax(-1.0), freq(-1.0) {}
+Station::Station() : rayon(-1.0) , hauteurMin(-1.0), freq(-1.0) {}
 
 bool
 Station::operator == (const Station& autre) const{
@@ -19,9 +19,9 @@ Station::operator == (const Station& autre) const{
 
 std::istream& operator >> (std::istream& is, Station& s){
     
-    is >> s.nom >>  s.rayon  >> s.hauteurMax >> s.freq;
+    is >> s.nom >>  s.rayon  >> s.hauteurMin >> s.freq;
     assert( s.rayon >= 0.0 );
-    assert( s.hauteurMax >= 0.0 );
+    assert( s.hauteurMin >= 0.0 );
     assert( s.freq >= 0.0 );
     return is;
 }
@@ -29,7 +29,7 @@ std::istream& operator >> (std::istream& is, Station& s){
 std::ostream& operator << (std::ostream& os, const Station& s) {
     os << s.nom << ' ';
     os << s.rayon << ' ';
-    os << s.hauteurMax << ' ';
+    os << s.hauteurMin << ' ';
     os << s.freq;
     
     return os;

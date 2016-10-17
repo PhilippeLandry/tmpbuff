@@ -134,8 +134,9 @@ void Combinator::onCombinaison( const Tableau<int>& combine, const Tableau<int>&
     // On regarde si les antennes sont compatibles sur leur position
     for( int i = 0; i < combine.taille(); i ++ ){
         
-        if(this->immeubles[combine[i]].hauteur < this->stations[permutation[i]].hauteurMax ){
+        if(this->immeubles[combine[i]].hauteur < this->stations[permutation[i]].hauteurMin ){
             // rejeté car hauteur incompatible
+            
             return;
         }
     }

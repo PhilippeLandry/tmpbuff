@@ -18,7 +18,7 @@ public:
     
     std::string nom;
     float rayon;
-    float hauteurMax;
+    float hauteurMin;
     float freq;
     
     friend std::istream& operator >> (std::istream&, Station&);
