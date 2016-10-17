@@ -10,7 +10,7 @@
 
 # Les options -O, -O1, -O2, -O3 permetent d'optimiser le code binaire produit.
 # Décommentez la ligne suivante si avant la remise finale
-OPTIONS = -O2 -Wall
+OPTIONS = -O3 -Wall
 
 
 # Syntaxe : cible : dépendance1 dépendance2 ...

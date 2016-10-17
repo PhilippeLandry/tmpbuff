@@ -163,8 +163,9 @@ void Combinator::onCombinaison( const Tableau<int>& combine, const Tableau<int>&
                 if( distance + stationA.rayon <= stationB.rayon || distance + stationB.rayon <= stationA.rayon ){
                     continue;
                 }
+                return;
             }
-            return;
+         
             
             
         }
