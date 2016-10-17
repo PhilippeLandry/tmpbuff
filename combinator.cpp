@@ -11,7 +11,7 @@
 using namespace std;
 
 
-
+// échanger deux valeurs
 void swap(int *fir, int *sec)
 {
     int temp = *fir;
@@ -19,8 +19,9 @@ void swap(int *fir, int *sec)
     *sec = temp;
 }
 
-/* arr is the string, curr is the current index to start permutation from and size is sizeof the arr */
-void permutation(int * arr, int curr, int size, Tableau<Tableau<int> >& callback)
+
+void
+Combinator::permutation(int * arr, int curr, int size, Tableau<Tableau<int> >& callback)
 {
     if(curr == size-1)
     {
@@ -56,11 +57,14 @@ Combinator::voisins( const Immeuble& immeuble , const Station& station ) {
     float ymax = immeuble.position.y + station.rayon;
     
     for( int i = 0 ; i < this->immeubles.taille(); i++){
+        
+        // on continue si immeuble hors du bounding box
         if( this->immeubles[i].position.x < xmin) continue;
         if( this->immeubles[i].position.x > xmax) continue;
         if( this->immeubles[i].position.y < ymin) continue;
         if( this->immeubles[i].position.y > ymax) continue;
         
+        // ajouter l'immeuble à la liste si couvert part la station
         float distance = immeuble.position.distance( this->immeubles[i].position);
         if( distance <= station.rayon ){
             resultat.ajouter(i);
@@ -118,7 +122,6 @@ Combinator::combinate(int offset, int k ) {
     for (int i = offset; i <= indices.taille() - k; ++i) {
         
         combinaison.ajouter(indices[i]);
-        
         combinate(i+1, k-1);
         combinaison.enlever( combinaison.taille() -1);
     }
@@ -233,7 +236,7 @@ Combinator::placerAntennes(  ) {
         }
         
         cout << station.nom << " " << (inutile ? "--" : immeuble.nom) << endl;
-        
+    
         
     }
     cout << couvertureMax << endl;
